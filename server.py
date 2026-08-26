@@ -7,6 +7,7 @@ app = Flask("curl_commands")
 
 RED = "\x1b[31m"
 GREEN = "\x1b[32m"
+YELLO = "\x1b["
 RESET = "\x1b[0m"
 
 #######################################################################
@@ -37,7 +38,7 @@ def generate_love():
     yield clear
     while True:
         for frame in LOVE_FRAMES:
-            yield home + frame + " I love Ainsley Dundy " + frame + "\n"
+            yield home + frame + "\n"
             time.sleep(0.3)
 
 
@@ -46,7 +47,6 @@ def love():
     return Response(generate_love(), mimetype="text/plain")
 
 #######################################################################
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
